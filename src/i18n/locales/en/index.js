@@ -1,9 +1,10 @@
 const FAQs_CONTENT = require('raw-loader!./faq.html');
 const PRIVACY_CONTENT = require('raw-loader!./privacy.html');
 const TERMS_CONTENT = require('raw-loader!./terms.html');
-
+const coin = require('./coin')
+;
 module.exports = {
-  CryptoGirl: 'CryptoGirl',
+  LinkIdol: 'LinkIdol',
   'My Cards': 'My Cards',
   'Sign In': 'Sign In',
   GirlList: 'Girl List',
@@ -40,4 +41,5 @@ module.exports = {
   NoMetaMaskMsg: 'You can only play me on a desktop browser like Chrome or Firefox.',
   LoginOKTitle: 'Welcome Back!',
   LoginOKMsg: 'Click Here to see your collection',
+  coin,
 };

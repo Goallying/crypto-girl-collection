@@ -1,9 +1,10 @@
 const FAQs_CONTENT = require('raw-loader!./faq.html');
 const PRIVACY_CONTENT = require('raw-loader!./privacy.html');
 const TERMS_CONTENT = require('raw-loader!./terms.html');
+const coin = require('./coin');
 
 module.exports = {
-  CryptoGirl: '币娘 Collection',
+  LinkIdol: 'Link Idol',
   'My Cards': '我的卡牌',
   'Sign In': '登录游戏',
   Home: '首页',
@@ -41,4 +42,5 @@ module.exports = {
   NoMetaMaskMsg: '你只能在支持 Web3 的浏览器（如 Google Chrome 或 FireFox），并安装 MetaMask 插件才能正常使用这个网站',
   LoginOKTitle: '欢迎回来',
   LoginOKMsg: '点击这里查看你的卡片收藏',
+  coin,
 };

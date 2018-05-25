@@ -33,23 +33,6 @@
                 </div>
               </div>
             <!-- Experimental End -->
-
-             <!-- <router-link :to="{ name: 'User', params:{address: item.owner}}">
-            <figure class="image is-128x128">
-              <img class="item-image"
-              :src="getOwnerAvatar">
-            </figure>
-            </router-link>
-            <ul>
-              <li>{{$t('Owner')}}：
-                <router-link :to="{ name: 'User', params:{address: item.owner}}">
-                  {{ownerTag}}
-                </router-link>
-              </li>
-              <li>{{$t('Current Price')}}：{{toDisplayedPrice(item.price)}}</li>
-              <li>{{$t('isLuckyClaim')}}：{{ isConvert ? 'Yes' : 'No'}}</li>
-            </ul>
-            <p class="item-slogan">{{$t('Slogan')}}: {{ad}}</p> -->
             <article v-if="notOwner"
                      class="message is-warning">
               <div class="message-body">
@@ -103,8 +86,7 @@
 </template>
 
 <script>
-import { exchangeLuckyToken, setGg, setNextPrice } from '@/api';
-import CryptoGirlContract from '@/contract/CryptoGirlContract';
+import { buyItem, exchangeLuckyToken, setGg, setNextPrice } from '@/api';
 import { toReadablePrice } from '@/util';
 import Dravatar from 'dravatar';
 
@@ -163,24 +145,20 @@ export default {
   watch: {},
 
   methods: {
-    async onBuy(rate) {
-      const contract = new CryptoGirlContract();
-      await contract.initialize();
-
+    onBuy(rate) {
       if (this.$store.state.signInError) {
         return this.$router.push({ name: 'Login' });
       }
-      const buyPrice = (this.item.price * rate).toFixed(0);
-
-      try {
-        await contract.buyItem(this.itemId, buyPrice);
-        alert(this.$t('BUY_SUCCESS_MSG'));
-        setNextPrice(this.itemId, buyPrice);
-        return true;
-      } catch (error) {
-        alert(this.$t('BUY_FAIL_MSG'));
-        return error;
-      }
+      const buyPrice = this.item.price.times(rate).toFixed(0);
+      buyItem(this.itemId, buyPrice)
+        .then(() => {
+          alert(this.$t('BUY_SUCCESS_MSG'));
+          setNextPrice(this.itemId, buyPrice);
+        })
+        .catch((e) => {
+          alert(this.$t('BUY_FAIL_MSG'));
+          console.log(e);
+        });
     },
     toDisplayedPrice(priceInWei) {
       const readable = toReadablePrice(priceInWei);

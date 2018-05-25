@@ -49,19 +49,15 @@ export default {
 
   computed: {
     items() {
-      const result = this.itemIds.map((id) => {
+      return this.itemIds.map((id) => {
         const item = this.$store.state.items[id];
         return item || { id };
       });
-      return result;
     },
   },
 
   methods: {
     toDisplayedPrice(priceInWei) {
-      if (priceInWei === undefined) {
-        priceInWei = '0';
-      }
       const readable = toReadablePrice(priceInWei);
       return `${readable.price} ${readable.unit}`;
     },
