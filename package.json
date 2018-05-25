@@ -1,5 +1,5 @@
 {
-  "name": "linkidol-frontend",
+  "name": "cryptogirl-frontend",
   "version": "1.0.0",
   "description": "A Vue.js project",
   "author": "",
@@ -19,7 +19,6 @@
     "js-cookie": "^2.2.0",
     "pug": "^2.0.3",
     "pug-loader": "^2.4.0",
-    "qrcode": "^1.2.0",
     "superagent": "^3.8.2",
     "timeout-then": "^1.1.0",
     "vue": "^2.5.2",
@@ -30,7 +29,7 @@
     "vue-router": "^3.0.1",
     "vue-spinner": "^1.0.3",
     "vuex": "^3.0.1",
-    "web3": "0.20.4"
+    "web3": "^1.0.0-beta.34"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",

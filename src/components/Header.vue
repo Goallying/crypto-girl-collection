@@ -4,7 +4,7 @@
       <div class="navbar-brand">
         <router-link class="navbar-item"
                      :to="{ name: 'Home'}">
-          <img src="/static/assets/logo.png">&nbsp;&nbsp;{{$t('LinkIdol')}}
+          <img src="/static/assets/logo.png">&nbsp;&nbsp;{{$t('CryptoGirl')}}
         </router-link>
         <router-link
                      class="navbar-item"

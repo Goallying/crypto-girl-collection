@@ -3,7 +3,7 @@ const PRIVACY_CONTENT = require('raw-loader!./privacy.html');
 const TERMS_CONTENT = require('raw-loader!./terms.html');
 
 module.exports = {
-  LinkIdol: 'LinkIdol',
+  CryptoGirl: 'CryptoGirl',
   'My Cards': 'My Cards',
   'Sign In': 'Sign In',
   GirlList: 'Girl List',
